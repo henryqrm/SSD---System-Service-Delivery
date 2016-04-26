@@ -1,0 +1,50 @@
+<div class="md-whiteframe-3dp min-conteiner">
+  <md-toolbar class="md-hue-3" layout="row" layout-align="space-between center">
+    <md-button class="tui-navbar-logo">
+      <img class="tui-navbar-logo-image" src="assets/images/logo-ssd.png" alt="" />
+    </md-button>
+    <div class="tui-navbar-user" layout="row" layout-align="space-between center" ng-if="!vm.isLogged()">
+      <md-button ng-click="vm.openLogin()"> login</md-button>
+      <md-button ui-sref="signup"> Registrar</md-button>
+    </div>
+    <div class="tui-navbar-user" layout="row" layout-align="space-between center" ng-if="vm.isLogged()">
+      <div class="" flex="25">
+        <div class="tui-navbar-user-image">
+          <img src="assets/images/profile.png" alt="" />
+        </div>
+      </div>
+      <div flex="70">
+        <div class="md-subhead">
+          {{vm.user().name.first}}
+        </div>
+        <div layout="row" layout-align="space-between center">
+          <div class="md-caption">
+            Bem vindo!
+          </div>
+          <div class="">
+            <md-button class="tui-navbar-sub-main" ng-click="vm.logout()">
+              <md-icon>
+                <i class="material-icons">exit_to_app</i>
+              </md-icon>
+              Sair
+            </md-button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </md-toolbar>
+  <md-toolbar class="md-hue-3" layout="row" layout-align="start center">
+    <div layout="row" layout-margin>
+      <md-button class="md-icon-button">
+        <md-icon>
+          <i class="material-icons">filter_list</i>
+        </md-icon>
+      </md-button>
+    </div>
+    <section class="tui-navbar-main" flex layout="row" layout-align="center center">
+      <md-button ng-if="vm.isLogged()" class="tui-navbar-main-item" href="#">Seus Serviços</md-button>
+      <md-button ng-if="vm.isProvider()" class="tui-navbar-main-item" href="#">Cadastrar Serviços</md-button>
+      <md-button ng-if="vm.isAdmin()" class="tui-navbar-main-item" ui-sref="reports">Relatório</md-button>
+    </section>
+  </md-toolbar>
+</div>

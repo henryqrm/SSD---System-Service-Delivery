@@ -1,0 +1,28 @@
+<md-tabs md-dynamic-height md-border-bottom="true" md-selected="main.main.data.selectedIndex" md-stretch-tabs="always">
+  <md-tab id="tab1">
+    <md-tab-label>
+      <md-icon>
+        <i class="material-icons">account_circle</i>
+      </md-icon>
+      Usuário
+    </md-tab-label>
+    <md-tab-body>
+      <md-content flex layout-padding class="container" layout layout-align="center center">
+        <div flex="50" ng-include="'app/signup/user/user.html'"> </div>
+      </md-content>
+    </md-tab-body>
+  </md-tab>
+  <md-tab id="tab2">
+    <md-tab-label>
+      <md-icon>
+        <i class="material-icons">supervisor_account</i>
+      </md-icon>
+      Prestador
+    </md-tab-label>
+    <md-tab-body>
+      <md-content flex layout-padding class="container" layout layout-align="center center">
+        <div ng-include="'app/signup/provider/provider.html'"> </div>
+      </md-content>
+    </md-tab-body>
+  </md-tab>
+</md-tabs>

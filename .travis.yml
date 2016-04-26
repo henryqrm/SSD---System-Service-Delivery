@@ -1,0 +1,25 @@
+language: node_js
+node_js:
+  - 4.2.3
+matrix:
+  fast_finish: true
+  allow_failures:
+    - node_js: 5.1.1
+before_script:
+  - npm install -g bower grunt-cli
+  - gem install sass
+  - bower install
+services: mongodb
+after_success:
+  - git config --global user.email "email.henrique.rm@gmail.com"
+  - git config --global user.name "Henrique Rodrigues"
+  - echo "Host heroku.com" >> ~/.ssh/config
+  - echo "   StrictHostKeyChecking no" >> ~/.ssh/config
+  - echo "   CheckHostIP no" >> ~/.ssh/config;
+  - echo "   UserKnownHostsFile=/dev/null" >> ~/.ssh/config;
+  - if [[ $TRAVIS_PULL_REQUEST == "false" && $TRAVIS_BRANCH == "master" ]]; then gem install heroku; fi
+  - if [[ $TRAVIS_PULL_REQUEST == "false" && $TRAVIS_BRANCH == "master" ]]; then heroku keys:clear; fi
+  - if [[ $TRAVIS_PULL_REQUEST == "false" && $TRAVIS_BRANCH == "master" ]]; then yes | heroku keys:add; fi
+  - if [[ $TRAVIS_PULL_REQUEST == "false" && $TRAVIS_BRANCH == "master" ]]; then grunt build; fi
+  - if [[ $TRAVIS_PULL_REQUEST == "false" && $TRAVIS_BRANCH == "master" ]]; then yes | grunt buildcontrol:heroku;  fi
+  - if [[ $TRAVIS_PULL_REQUEST == "false" && $TRAVIS_BRANCH == "master" ]]; then heroku keys:clear; fi

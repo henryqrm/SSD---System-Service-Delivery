@@ -1,0 +1,10 @@
+node_modules
+server/public
+.tmp
+.sass-cache
+.idea
+cliente/bower_components
+cliente/dist
+cliente/node_modules
+npm-debug.log
+coverage

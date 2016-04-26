@@ -1,0 +1,50 @@
+<md-card class="tui-card-grid">
+  <md-card-header>
+    <!-- <md-card-avatar>
+      <md-icon class="md-avatar-icon" md-svg-icon="img/icons/menu.svg"></md-icon>
+    </md-card-avatar> -->
+    <md-card-header-text>
+      <span class="md-title">
+        ######
+        <span class="md-subhead">
+          ######
+        </span>
+      </span>
+    </md-card-header-text>
+  </md-card-header>
+  <img ng-src="assets/images/angular-material.png" class="md-card-image" alt="Washed Out">
+  <md-card-content class="tui-card-content">
+    <div class="tui-card-grid-content-item">
+      <i class="material-icons">attach_money</i>
+      <span class="md-body-1">R$ 0.000.000</span>
+      <md-tooltip md-direction="left">
+        Preço de venda
+      </md-tooltip>
+    </div>
+    <md-divider></md-divider>
+    <div class="tui-card-grid-content-item">
+      <i class="material-icons">cached</i>
+      <span class="md-body-1">R$ 0.000.000</span>
+      <md-tooltip md-direction="left">
+        Preço de troca
+      </md-tooltip>
+    </div>
+    <md-divider></md-divider>
+    <div class="tui-card-grid-content-item">
+      <i class="material-icons">date_range</i>
+      <span class="md-body-1">2012/2013</span>
+      <md-tooltip md-direction="left">
+        Ano/Modelo
+      </md-tooltip>
+    </div>
+  </md-card-content>
+  <md-card-actions class="tui-card-actions" layout="row" layout-align="space-between center">
+    <md-button class="md-icon-button" ng-click="vm.vehicle.like = !vm.vehicle.like">
+      <md-icon>
+        <i class="material-icons" ng-if="!vm.vehicle.like">thumb_up</i>
+        <i class="material-icons icon-liked" ng-if="vm.vehicle.like">thumb_up</i>
+      </md-icon>
+    </md-button>
+    <a href="#" class="md-caption">Detalhes</a>
+  </md-card-actions>
+</md-card>

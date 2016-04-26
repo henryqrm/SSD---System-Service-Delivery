@@ -1,0 +1,31 @@
+.tui-card-grid{
+  md-card-header{
+    padding-bottom: 0;
+    padding-top: 8px;
+  }
+}
+.tui-card-grid-content-item {
+  cursor: default;
+  i {
+    font-size: 1.2rem;
+  }
+}
+.tui-card-content {
+  padding-bottom: 0;
+}
+.tui-card-grid:hover {
+  @extend .md-whiteframe-5dp;
+}
+.tui-card-actions {
+  margin-top: 0;
+  margin-bottom: 0;
+  .md-button {
+    margin-left: 0 !important;
+  }
+  i {
+    font-size: 1.2rem;
+  }
+}
+.icon-liked{
+  color: blue;
+}

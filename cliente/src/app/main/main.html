@@ -1,0 +1,56 @@
+
+<div class="conteiner min-conteiner" layout="row" layout-align="center stretch">
+  <!-- <tui-card-grid flex="15"></tui-card-grid> -->
+  <tui-sidebar class="tui-sidebar-effect" ng-if="!main.hide" flex="35"></tui-sidebar>
+  <div flex="90"  layout="column" ng-cloak>
+    <md-content flex layout-padding class="container">
+      <div layout="row">
+        <div flex="65">
+          <h1>Encontre profissionais para facilitar sua vida</h1>
+          <img src="assets/images/home.jpg" alt="" style="width: 100%;">
+        </div>
+        <div flex="35">
+          <md-card>
+            <md-card-title>
+              <md-card-title-text>
+                <span class="md-headline">Encontre Profissionais</span>
+                <span class="md-subhead">Qual serviço você precisa?</span>
+              </md-card-title-text>
+            </md-card-title>
+            <md-card-content>
+              <md-input-container>
+                <label>Pesquisar</label>
+                <input ng-model="user.firstName">
+              </md-input-container>
+            </md-card-content>
+            <md-card-actions layout="row" layout-align="center center">
+              <md-button class="md-primary">Buscar</md-button>
+            </md-card-actions>
+          </md-card>
+          <md-card>
+            <md-card-title>
+              <md-card-title-text>
+                <span class="md-headline">Quer encontrar mais clientes?</span>
+                <span class="md-subhead">Faça o cadastro!</span>
+              </md-card-title-text>
+            </md-card-title>
+            <md-card-actions layout="row" layout-align="center center">
+              <md-button class="md-primary">Cadastrar</md-button>
+            </md-card-actions>
+          </md-card>
+          <md-card>
+            <md-card-title>
+              <md-card-title-text>
+                <span class="md-headline">Conte-nos o que você precisa</span>
+                <span class="md-subhead">Responda algumas perguntas que vão nos ajudar a encontrar os melhores profissionais para você.</span>
+              </md-card-title-text>
+            </md-card-title>
+            <md-card-actions layout="row" layout-align="center center">
+              <md-button class="md-primary">Questionário</md-button>
+            </md-card-actions>
+          </md-card>
+        </div>
+      </div>
+    </md-content>
+  </div>
+</div>

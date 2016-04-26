@@ -1,0 +1,61 @@
+<div ng-controller="UserCtrl as vm">
+  <form name="signupform" ng-submit="vm.register(signupform.$valid)" novalidate>
+    <md-input-container class="md-block">
+      <label>Primeiro nome</label>
+      <input required="" name="clientName" ng-model="vm.client.name.fist">
+      <div ng-messages="signupform.clientName.$error">
+        <div ng-message="required">Campo obrigatório</div>
+      </div>
+    </md-input-container>
+    <md-input-container class="md-block">
+      <label>Segundo Nome</label>
+      <input required name="clientLastName" ng-model="vm.client.name.last">
+      <div ng-messages="signupform.clientLastName.$error">
+        <div ng-message="required">Campo obrigatório</div>
+      </div>
+    </md-input-container>
+    <md-input-container class="md-block">
+      <label>Senha</label>
+      <input type="password" required name="clientPass" ng-model="vm.client.password">
+      <div ng-messages="signupform.clientPass.$error">
+        <div ng-message="required">Campo obrigatório</div>
+      </div>
+    </md-input-container>
+    <md-input-container class="md-block">
+      <label>Confirme senha</label>
+      <input type="password" required name="clientRePass" ng-model="aux.password">
+      <div ng-messages="signupform.clientRePass.$error">
+        <div ng-message="required">Campo obrigatório</div>
+      </div>
+      <div ng-messages="signupform.clientRePass.$touched">
+        <div ng-if="(vm.client.password !== aux.password) && signupform.clientRePass.$touched">Senhas não coincidem</div>
+      </div>
+    </md-input-container>
+    <md-input-container class="md-block">
+      <label>CPF</label>
+      <input required name="clientCpf" ng-model="vm.client.cpf" ng-pattern="/^\d{3}\.\d{3}\.\d{3}\-\d{2}$/" ui-br-cpf-mask>
+      <div ng-messages="signupform.clientCpf.$error" role="alert">
+        <div ng-message-exp="['cpf','pattern', 'required']">CPF inválido</div>
+      </div>
+    </md-input-container>
+    <md-input-container class="md-block">
+      <label>Email</label>
+      <input required type="email" name="clientEmail" ng-model="vm.client.email" minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" />
+      <div ng-messages="signupform.clientEmail.$error" role="alert">
+        <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+          Seu e-mail deve ter entre 10 e 100 caracteres e parecido com um endereço de e-mail.
+        </div>
+      </div>
+    </md-input-container>
+    <md-input-container class="md-block">
+      <label>Endereço</label>
+      <input required name="clientAdress" g-places-autocomplete ng-model="vm.client.address">
+      <div ng-messages="signupform.clientAdress.$error">
+        <div ng-message="required">Campo obrigatório</div>
+      </div>
+    </md-input-container>
+    <md-card-actions layout="row" layout-align="center center">
+      <md-button type="submit" class="md-raised md-primary">Cadastrar</md-button>
+    </md-card-actions>
+  </form>
+</div>

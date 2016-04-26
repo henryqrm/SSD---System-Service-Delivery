@@ -1,0 +1,37 @@
+$timer-sidebar: 300ms;
+.conteiner{
+  margin-right: 2rem;
+}
+.min-conteiner{
+  min-width: 850px !important;
+}
+.tui-sidebar-effect{
+
+}
+.tui-sidebar-effect.ng-enter, .tui-sidebar-effect.ng-leave {
+   -webkit-transition: $timer-sidebar linear all;
+   -moz-transition: $timer-sidebar linear all;
+   -ms-transition: $timer-sidebar linear all;
+   -o-transition: $timer-sidebar linear all;
+   transition: $timer-sidebar linear all;
+}
+/* du début de l'entrée */
+.tui-sidebar-effect.ng-enter {
+   max-width: 0;
+   opacity: 0;
+}
+/* à la fin de l'entrée */
+.tui-sidebar-effect.ng-enter.ng-enter-active {
+   max-width: 90%;
+   opacity:1;
+}
+/* du début de la sortie */
+.tui-sidebar-effect.ng-leave {
+   max-width: 90%;
+   opacity:1;
+}
+/* à la fin de la sortie */
+.tui-sidebar-effect.ng-leave.ng-leave-active {
+   max-width: 0;
+   opacity:1;
+}

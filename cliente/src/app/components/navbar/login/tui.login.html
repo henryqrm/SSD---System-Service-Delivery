@@ -1,0 +1,27 @@
+<p>Acesso ao SSD</p>
+
+
+<md-input-container md-no-float class="md-block">
+  <input ng-model="vm.email" type="text" placeholder="E-mail">
+  <md-icon style="display:inline-block;"><i class="material-icons">account_circle</i></md-icon>
+</md-input-container>
+
+
+<md-input-container md-no-float class="md-block">
+  <input ng-model="vm.password" type="password" placeholder="Address">
+  <md-icon style="display:inline-block;"><i class="material-icons">vpn_key</i></md-icon>
+</md-input-container>
+Logar como: <br>
+<md-button md-no-ink class="md-primary" ng-click="vm.admin()">Administrador</md-button>
+<md-button md-no-ink class="md-primary" ng-click="vm.provider()">Prestador</md-button>
+<md-button md-no-ink class="md-primary" ng-click="vm.user()">Usuário</md-button>
+<div layout="row" layout-align="space-between center">
+  <div class="" flex>
+    <md-checkbox ng-model="vm.remember" aria-label="remenber">
+      Lembrar-me
+    </md-checkbox>
+  </div>
+  <div class="" flex="25">
+    <md-button class="md-raised" ng-click="vm.login()">Entrar</md-button>
+  </div>
+</div>

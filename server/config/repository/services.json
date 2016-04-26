@@ -1,0 +1,33 @@
+[{
+    "id": 0,
+    "name": "Manutenção de computadores",
+    "category": "Tecnologia"
+}, {
+    "id": 1,
+    "name": "Desenvolvedor",
+    "category": "Tecnologia"
+}, {
+    "id": 2,
+    "name": "Pedreiro",
+    "category": "Construção"
+}, {
+    "id": 3,
+    "name": "Pintor",
+    "category": "Construção"
+}, {
+    "id": 4,
+    "name": "Médico",
+    "category": "Saúde"
+}, {
+    "id": 5,
+    "name": "Enfermeiro",
+    "category": "Saúde"
+}, {
+    "id": 6,
+    "name": "Faxineiro",
+    "category": "Geral"
+}, {
+    "id": 7,
+    "name": "Auxiliar de serviços",
+    "category": "Geral"
+}]

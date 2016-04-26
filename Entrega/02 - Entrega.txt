@@ -1,0 +1,13 @@
+Olá Caram.
+
+Devido ao tamanho do projeto favor acessar por este link.
+
+
+A aplicação é fullstack JavaScript
+
+
+Link do codigo
+https://github.com/henryqrm/SSD---System-Service-Delivery
+
+Link da aplicação
+https://ssd-system-service-delivery.herokuapp.com
