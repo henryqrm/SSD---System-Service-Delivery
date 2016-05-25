@@ -10,8 +10,9 @@ exports.service = function(id, callback) {
 };
 
 exports.remove = function (id, callback) {
-    
+
 };
+
 exports.userRegister = function(id, idUser, callback) {
     db.Person.findById(idUser, function(error, person) {
         if (error || person === null || person === undefined) {
