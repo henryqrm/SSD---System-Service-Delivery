@@ -1,5 +1,6 @@
 'use strict';
 var db = require('../model/model.person.js');
+var validator = require('validator');
 
 exports.list = function(callback) {
     db.Person.find({}, function(error, persons) {
@@ -24,26 +25,39 @@ exports.person = function(id, callback) {
         }
     });
 };
-exports.create = function(callback) {
-    new db.Person({
-        name: {
-            first: 'Henrique',
-            last: 'Rodrigues'
-        },
-        cpf: '115.173.626-01',
-        email: 'email',
-        password: '12345',
-        enable: true, // Allow admin
-        create_at: Date()
-    }).save(function(error, person) {
-        if (error) {
-            callback({
-                error: 'Não foi possivel salvar o usuario'
-            });
-        } else {
-            callback(person);
-        }
-    });
+
+exports.create = function(person, callback) {
+    if (!validator.isEmail(person.email)) {
+        callback({
+            error: 'email_incorrect'
+        });
+    } else if (person.password === '') {
+        callback({
+            error: 'no_password'
+        });
+    } else {
+        db.Person.findOne({
+            'email': person.email
+        }, function(err, resp) {
+            if (err || resp === null || resp === undefined) {
+                person.create_at = Date();
+                new db.Person(person).save(function(error, person) {
+                    if (error) {
+                        callback({
+                            error: 'unexpected'
+                        });
+                    } else {
+                        callback(person);
+                    }
+                });
+            } else {
+                callback({
+                    error: 'registred'
+                });
+            }
+        });
+    }
+
 };
 
 exports.delete = function(id, callback) {

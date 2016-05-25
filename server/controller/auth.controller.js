@@ -10,14 +10,14 @@ exports.login = function(email, password, callback) {
         function(err, person) {
             if (err || person === null || person === undefined) {
                 callback({
-                    error: 'Usuário ou senha invalido'
+                    error: 'no_user'
                 });
             } else {
                 if (person.password === password) {
                     callback(person);
                 } else {
                     callback({
-                        error: 'Usuário ou senha invalido'
+                        error: 'no_password'
                     });
                 }
             }

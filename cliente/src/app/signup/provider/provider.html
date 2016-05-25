@@ -3,14 +3,14 @@
   <form name="signupform" ng-submit="vm.register(signupform.$valid)" novalidate>
     <md-input-container class="md-block">
       <label>Primeiro nome</label>
-      <input required name="providerName" ng-model="vm.provider.name">
+      <input required name="providerName" ng-model="vm.provider.name.first">
       <div ng-messages="signupform.providerName.$error">
         <div ng-message="required">Campo obrigatório</div>
       </div>
     </md-input-container>
     <md-input-container class="md-block">
       <label>Segundo Nome</label>
-      <input required name="providerLastName" ng-model="vm.provider.lastName">
+      <input required name="providerLastName" ng-model="vm.provider.name.last">
       <div ng-messages="signupform.providerLastName.$error">
         <div ng-message="required">Campo obrigatório</div>
       </div>
@@ -50,7 +50,7 @@
     </md-input-container>
     <md-input-container class="md-block">
       <label>Endereço</label>
-      <input required name="providerAdress" g-places-autocomplete ng-model="vm.provider.address">
+      <input required name="providerAdress" g-places-autocomplete ng-model="vm.aux.address">
       <div ng-messages="signupform.providerAdress.$error">
         <div ng-message="required">Campo obrigatório</div>
       </div>

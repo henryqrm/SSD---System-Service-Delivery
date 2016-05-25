@@ -6,7 +6,7 @@
   SignupSrv.$inject = ['$q', '$http', 'API'];
 
   function SignupSrv($q, $http, API) {
-    var endpoint = API + '/person';
+    var endpoint = API + '/api/person';
     var self = this;
 
     self.create = create;

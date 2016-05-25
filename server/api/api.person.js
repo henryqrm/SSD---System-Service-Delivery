@@ -16,7 +16,7 @@ router
         });
     })
     .post('/api/person', function(req, res) {
-        personController.create(function(person) {
+        personController.create(req.body, function(person) {
             res.json(person);
         });
     })

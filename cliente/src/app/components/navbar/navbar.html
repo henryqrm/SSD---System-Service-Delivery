@@ -1,6 +1,6 @@
 <div class="md-whiteframe-3dp min-conteiner">
   <md-toolbar class="md-hue-3" layout="row" layout-align="space-between center">
-    <md-button class="tui-navbar-logo">
+    <md-button class="tui-navbar-logo" ui-sref="home">
       <img class="tui-navbar-logo-image" src="assets/images/logo-ssd.png" alt="" />
     </md-button>
     <div class="tui-navbar-user" layout="row" layout-align="space-between center" ng-if="!vm.isLogged()">
@@ -15,11 +15,11 @@
       </div>
       <div flex="70">
         <div class="md-subhead">
-          {{vm.user().name.first}}
+          {{vm.user().name.first + ' ' + vm.user().name.last}}
         </div>
         <div layout="row" layout-align="space-between center">
           <div class="md-caption">
-            Bem vindo!
+            Perfil: {{vm.user().role}}
           </div>
           <div class="">
             <md-button class="tui-navbar-sub-main" ng-click="vm.logout()">
