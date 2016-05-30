@@ -85,4 +85,31 @@ exports.init = function() {
             }
         }
     });
+
+    db.Person.findOne({
+        'email': 'Henrique@Henrique.com.br'
+    }, function(err, person) {
+        if (!err) {
+            if (!person) {
+                new db.Person({
+                    name: {
+                        first: 'Henrique',
+                        last: ''
+                    },
+                    email: 'Henrique@Henrique.com.br',
+                    password: '123456',
+                    enable: false, // Allow user
+                    role: 'user',
+                    create_at: Date()
+                }).save(function(error, person) {
+                    if (error) {
+                        console.log("Não foi possivel salvar o usuario");
+                    } else {
+                        console.log(person);
+                        console.log("user create");
+                    }
+                });
+            }
+        }
+    });
 };

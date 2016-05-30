@@ -5,13 +5,17 @@ const populateDB = require('./config/seed');
 const api = {
     person: require('./api/api.person'),
     service: require('./api/api.service'),
-    auth: require('./api/api.auth')
+    auth: require('./api/api.auth'),
+    contract: require('./api/api.contract'),
+    admin: require('./api/api.admin')
 };
 
 // Rotas das APIs
 app.use(api.person);
 app.use(api.service);
 app.use(api.auth);
+app.use(api.contract);
+app.use(api.admin);
 
 
 // Popula o banco

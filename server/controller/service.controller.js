@@ -1,6 +1,5 @@
 'use strict';
 var config = require('../config/global.config');
-var db = require('../model/model.person.js');
 var service = require('../model/model.service.js');
 
 

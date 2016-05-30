@@ -1,6 +1,8 @@
 'use strict';
-var db = require('./config/db.config.js');
-var contractSchema = db.Schema({
+
+const db = require('../config/db.config.js');
+const mongoose = require('mongoose');
+let contractSchema = mongoose.Schema({
     id_provider: String,
     id_client: String,
     create_at: Date,

@@ -1,0 +1,10 @@
+// Admin
+/api/enable/user
+{
+    'id_user': id
+}
+
+/api/enable/contract
+{
+    'id_contract': id
+}

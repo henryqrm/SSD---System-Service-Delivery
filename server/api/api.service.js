@@ -4,7 +4,6 @@ var express = require('express');
 var router = module.exports = express.Router();
 router
     .post('/api/services', function(req, res) {
-        console.log(req.body.idProvider, req.body.idService);
         serviceCtrl.registerServiceProvider(req.body.idService, req.body.idProvider, function(data) {
             res.json(data);
         });

@@ -1,7 +1,8 @@
 'use strict';
 const db = require('../model/model.contract.js');
 
-function create(data, callback) {
+exports.create = function(data, callback) {
+    console.log(data);
     if (data.id_client !== null || data.id_provider !== null) {
         data.create_at = Date();
         data.enable = false;
@@ -15,9 +16,9 @@ function create(data, callback) {
             }
         });
     }
-}
+};
 
-function list(callback) {
+exports.list = function(callback) {
     db.Contract.find({}, function(err, data) {
         if (err) {
             callback({
@@ -27,10 +28,10 @@ function list(callback) {
             callback(data);
         }
     });
-}
+};
 
-function listProvider(id_provider, callback) {
-    db.Contract.findOne({
+exports.listProvider = function(id_provider, callback) {
+    db.Contract.find({
         id_provider: id_provider
     }, function(err, data) {
         if (err) {
@@ -41,10 +42,10 @@ function listProvider(id_provider, callback) {
             callback(data);
         }
     });
-}
+};
 
-function listClient(id_client, callback) {
-    db.Contract.findOne({
+exports.listClient = function(id_client, callback) {
+    db.Contract.find({
         id_client: id_client
     }, function(err, data) {
         if (err) {
@@ -55,28 +56,4 @@ function listClient(id_client, callback) {
             callback(data);
         }
     });
-}
-
-exports.contract = {
-    create: create,
-    list: list,
-    listProvider: listProvider,
-    listClient: listClient
 };
-
-var contractSchema = db.Schema({
-    id_provider: String,
-    id_client: String,
-    create_at: Date,
-    done_at: Date,
-    enable: Boolean,
-    rate: [{
-        id_person: String,
-        value: Number
-    }],
-    cost: {
-        point: Number,
-        money: Number,
-        type: Number
-    }
-});
