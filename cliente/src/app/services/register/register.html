@@ -1,0 +1,11 @@
+<md-content layout="column" layout-align="center center">
+  <md-input-container flex>
+    <label>Serviços</label>
+    <md-select ng-model="registerServices.aux.register">
+      <md-option ng-repeat="item in registerServices.servicesRegistred" value="{{item.id}}">
+        {{item.name}}
+      </md-option>
+    </md-select>
+  </md-input-container>
+  <md-button flex ng-click="registerServices.register($event)">Cadastrar</md-button>
+</md-content>

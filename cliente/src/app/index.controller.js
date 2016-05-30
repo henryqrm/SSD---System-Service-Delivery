@@ -12,21 +12,11 @@
     var vm = this;
 
 
-    vm.isAdmin = AuthService.isAdmin();
-    vm.isProvider = $rootScope.isProvider();
-    vm.isUser = $rootScope.isUser();
-
-
-
     activate();
 
     ////////////////
 
     function activate() {
-        setTimeout(function () {
-
-            console.log(vm.isAdmin);
-        },2000);
     }
   }
 })();

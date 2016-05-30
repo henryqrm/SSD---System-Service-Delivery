@@ -1,6 +1,9 @@
 'use strict';
 var config = require('../config/global.config');
 var db = require('../model/model.person.js');
+var service = require('../model/model.service.js');
+
+
 
 exports.list = function(callback) {
     callback(config.services);
@@ -9,39 +12,49 @@ exports.service = function(id, callback) {
     callback(config.services[id]);
 };
 
-exports.remove = function (id, callback) {
-
-};
-
-exports.userRegister = function(id, idUser, callback) {
-    db.Person.findById(idUser, function(error, person) {
-        if (error || person === null || person === undefined) {
+exports.registerServiceProvider = (idService, idProvider, callback) => {
+    let obj = {
+        id_service: idService,
+        id_person: idProvider,
+        name: config.services[idService].name,
+        category: config.services[idService].category,
+    };
+    console.log(obj);
+    service(obj).save((err, res) => {
+        console.log(err);
+        if (err || res === null || res === undefined) {
             callback({
-                error: 'Não foi possivel retornar o usuario'
+                error: 'Não foi possivel salvar serviço'
             });
         } else {
-            var service = config.services[id];
-            person.services.push(service);
-            person.save(function(err, person) {
-                if (error) {
-                    callback({
-                        error: 'Não foi possivel salvar o usuario'
-                    });
-                } else {
-                    callback(person);
-                }
-            });
+            callback(res);
         }
     });
 };
-exports.getUserServices = function(idUser, callback) {
-    db.Person.findById(idUser, function(error, person) {
-        if (error || person === null || person === undefined) {
+
+exports.getUserServices = function(idProvider, callback) {
+    service.find({
+        id_person: idProvider
+    }, (err, res) => {
+        if (err || res === null || res === undefined) {
             callback({
                 error: 'Não foi possivel retornar o usuario'
             });
         } else {
-            callback(person.services);
+            callback(res);
+        }
+    });
+};
+
+exports.getAllServices = function(callback) {
+    service.find({}, (err, res) => {
+        console.log(res);
+        if (err || res === null || res === undefined) {
+            callback({
+                error: 'Não foi possivel retornar o usuario'
+            });
+        } else {
+            callback(res);
         }
     });
 };

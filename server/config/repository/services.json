@@ -1,6 +1,6 @@
 [{
     "id": 0,
-    "name": "Manutenção de computadores",
+    "name": "Manutencao de computadores",
     "category": "Tecnologia"
 }, {
     "id": 1,
@@ -9,25 +9,25 @@
 }, {
     "id": 2,
     "name": "Pedreiro",
-    "category": "Construção"
+    "category": "Construcao"
 }, {
     "id": 3,
     "name": "Pintor",
-    "category": "Construção"
+    "category": "Construcao"
 }, {
     "id": 4,
-    "name": "Médico",
-    "category": "Saúde"
+    "name": "Medico",
+    "category": "Saude"
 }, {
     "id": 5,
     "name": "Enfermeiro",
-    "category": "Saúde"
+    "category": "Saude"
 }, {
     "id": 6,
     "name": "Faxineiro",
     "category": "Geral"
 }, {
     "id": 7,
-    "name": "Auxiliar de serviços",
+    "name": "Auxiliar de servicos",
     "category": "Geral"
 }]

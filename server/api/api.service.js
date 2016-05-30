@@ -1,24 +1,28 @@
 'use strict';
 var serviceCtrl = require('../controller/service.controller');
 var express = require('express');
-var validator = require('validator');
 var router = module.exports = express.Router();
 router
-    .get('/services', function(req, res) {
+    .post('/api/services', function(req, res) {
+        console.log(req.body.idProvider, req.body.idService);
+        serviceCtrl.registerServiceProvider(req.body.idService, req.body.idProvider, function(data) {
+            res.json(data);
+        });
+    })
+    .get('/api/services', function(req, res) {
         serviceCtrl.list(function(data) {
             res.json(data);
         });
     })
-    .get('/service/:id', function(req, res) {
-        var id = validator.trim(validator.escape(req.param('id')));
-        serviceCtrl.add(id, function(data) {
+    .get('/api/services/all', function(req, res) {
+        serviceCtrl.getAllServices(function(data) {
             res.json(data);
         });
     })
-    .post('/service/:id/user/:idUser', function(req, res) {
-        var id = validator.trim(validator.escape(req.param('id')));
-        var idUser = validator.trim(validator.escape(req.param('idUser')));
-        serviceCtrl.userRegister(id, idUser, function(data) {
+    .get('/api/services/:id', function(req, res) {
+        console.log("crash");
+        var id = req.param('id');
+        serviceCtrl.getUserServices(id, function(data) {
             res.json(data);
         });
     });
