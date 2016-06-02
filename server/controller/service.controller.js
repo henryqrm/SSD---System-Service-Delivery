@@ -11,14 +11,8 @@ exports.service = function(id, callback) {
     callback(config.services[id]);
 };
 
-exports.registerServiceProvider = (idService, idProvider, callback) => {
-    let obj = {
-        id_service: idService,
-        id_person: idProvider,
-        name: config.services[idService].name,
-        category: config.services[idService].category,
-    };
-    console.log(obj);
+exports.registerServiceProvider = (obj,callback) => {
+    console.log('XXX',obj);
     service(obj).save((err, res) => {
         console.log(err);
         if (err || res === null || res === undefined) {
@@ -26,6 +20,7 @@ exports.registerServiceProvider = (idService, idProvider, callback) => {
                 error: 'Não foi possivel salvar serviço'
             });
         } else {
+        console.log(res);
             callback(res);
         }
     });
@@ -47,8 +42,7 @@ exports.getUserServices = function(idProvider, callback) {
 
 exports.getAllServices = function(callback) {
     service.find({}, (err, res) => {
-        console.log(res);
-        if (err || res === null || res === undefined) {
+        if (err) {
             callback({
                 error: 'Não foi possivel retornar o usuario'
             });

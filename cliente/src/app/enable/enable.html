@@ -1,0 +1,25 @@
+<div ng-cloak>
+  <md-content layout="row" layout-align="space-around start">
+    <md-list flex="40">
+      <md-subheader class="md-no-sticky">Usuários Pendentes</md-subheader>
+      <md-list-item class="md-3-line" ng-repeat="item in enable.users" ng-click="enable.enableUser(item._id)">
+        <img ng-src="assets/images/profile.png" class="md-avatar" alt="{{item.name.first}}" />
+        <div class="md-list-item-text" layout="column">
+          <h3>{{ item.name.first }}</h3>
+          <h4>{{ item.role }}</h4>
+          <p>{{ item.email }}</p>
+        </div>
+      </md-list-item>
+    </md-list>
+    <md-list flex="40">
+      <md-subheader class="md-no-sticky">Contratos Pendentes</md-subheader>
+      <md-list-item class="md-3-line" ng-repeat="item in enable.contracts" ng-click="enable.enableContract(item._id)">
+        <div class="md-list-item-text" layout="column">
+          <h3>{{ item.service }}</h3>
+          <h4>{{ item.cost.money ||  item.cost.point}}</h4>
+          <p>{{ item.create_at }}</p>
+        </div>
+      </md-list-item>
+    </md-list>
+  </md-content>
+</div>

@@ -39,11 +39,13 @@
       function user() {
         return $rootScope.user;
       }
+
       function isAdmin() {
-          return AuthService.isAdmin();
+        return AuthService.isAdmin();
       }
+
       function isProvider() {
-          return AuthService.isProvider();
+        return AuthService.isProvider();
       }
 
       function logout() {
@@ -70,13 +72,15 @@
           vm.email = 'provider@provider.com.br';
           vm.password = '123456';
         }
+
         function admin() {
-            vm.email = 'admin@admin.com.br';
-            vm.password = '123456';
+          vm.email = 'admin@admin.com.br';
+          vm.password = '123456';
         }
+
         function user() {
-            vm.email = 'user@user.com.br';
-            vm.password = '123456';
+          vm.email = 'user@user.com.br';
+          vm.password = '123456';
         }
 
         function login() {
@@ -85,8 +89,31 @@
             email: vm.email,
             password: vm.password
           }).then(function(data) {
-            $rootScope.user = data;
             ngDialog.close();
+            if (data.error === "no_user") {
+              var alert = $mdDialog.alert({
+                title: 'Desculpe!',
+                textContent: 'Usuário ou senha estão incorretos.',
+                ok: 'Fechar'
+              });
+              $mdDialog.show(alert)
+                .finally(function() {
+                  alert = undefined;
+                });
+            } else if (data === "disable") {
+              var alert = $mdDialog.alert({
+                title: 'Desculpe!',
+                textContent: 'Peça ao admin para ativar',
+                ok: 'Fechar'
+              });
+              $mdDialog.show(alert)
+                .finally(function() {
+                  alert = undefined;
+                });
+            } else {
+              $rootScope.user = data;
+              ngDialog.close();
+            }
           }).catch(function() {
             var alert = $mdDialog.alert({
               title: 'Desculpe!',

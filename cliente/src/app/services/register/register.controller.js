@@ -24,7 +24,20 @@
     }
 
     function register(ev) {
-      ServicesSrv.registerServiceProvider(vm.aux.register, $rootScope.user._id).then(function() {
+      var obj = {
+        id_service: vm.aux.register,
+        id_person: $rootScope.user._id,
+        name_provider: ($rootScope.user.name.first + ' ' + $rootScope.user.name.last),
+        name: vm.servicesRegistred[vm.aux.register].name,
+        category: vm.servicesRegistred[vm.aux.register].category,
+        type: vm.aux.type,
+      };
+      if (vm.aux.type === 'Voluntário') {
+        obj.point = vm.aux.point_money;
+      } else {
+        obj.money = vm.aux.point_money;
+      }
+      ServicesSrv.registerServiceProvider(obj).then(function() {
         var confirm = $mdDialog.alert()
           .title('Serviço cadastrado')
           .textContent('Cadastrado com sucesso')
@@ -36,7 +49,6 @@
 
     function activate() {
       services();
-      console.log();
     }
 
   }

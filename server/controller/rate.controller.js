@@ -1,11 +1,11 @@
 'use strict';
 
-exports.rate = function(id, callback) {
+exports.rating = function(id, callback) {
     callback('callback');
 };
-exports.rateBest = function(callback) {
+exports.ratingBest = function(callback) {
     callback('callback');
 };
-exports.rateWorse = function(callback) {
+exports.ratingWorse = function(callback) {
     callback('callback');
 };

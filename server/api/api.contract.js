@@ -9,6 +9,18 @@ router
             res.json(data);
         });
     })
+    .post('/api/contract/close', (req, res) => {
+        let id = req.body.id_contract;
+        contractCtrl.closeContract(id, (data) => {
+            res.json(data);
+        });
+    })
+    .post('/api/contract/done', (req, res) => {
+        let id = req.body.id_contract;
+        contractCtrl.getDoneContract(id, (data) => {
+            res.json(data);
+        });
+    })
     .post('/api/contracts/user', function(req, res) {
         let id = req.body.id_client;
         contractCtrl.listClient(id, function(data) {

@@ -43,6 +43,7 @@
     </div>
     <section class="tui-navbar-main" flex layout="row" layout-align="center center">
       <md-button ng-if="vm.isLogged()" class="tui-navbar-main-item" ui-sref="services">Seus Contratos</md-button>
+        <md-button ng-if="vm.isAdmin()" class="tui-navbar-main-item" ui-sref="enable">Habilitar</md-button>
       <md-button ng-if="vm.isProvider()" class="tui-navbar-main-item" ui-sref="register-service">Cadastrar Serviços</md-button>
       <md-button ng-if="vm.isAdmin()" class="tui-navbar-main-item" ui-sref="reports">Relatório</md-button>
     </section>

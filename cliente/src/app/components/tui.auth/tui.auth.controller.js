@@ -17,8 +17,7 @@
 
     ////////////////
 
-    function activate() {
-    }
+    function activate() {}
 
     function login() {
       vm.authenticating = true;
@@ -26,7 +25,20 @@
         email: vm.email,
         password: vm.password
       }).then(function(data) {
-        $rootScope.user = data;
+        console.log(data);
+        if (data.enable) {
+          $rootScope.user = data;
+        } else {
+          var alert = $mdDialog.alert({
+            title: 'Desculpe!',
+            textContent: 'Seu usuário precisa ser ativo pelo Admin',
+            ok: 'Fechar'
+          });
+          $mdDialog.show(alert)
+            .finally(function() {
+              alert = undefined;
+            });
+        }
       }).catch(function() {
         var alert = $mdDialog.alert({
           title: 'Desculpe!',

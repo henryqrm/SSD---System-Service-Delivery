@@ -13,6 +13,7 @@
     endpoint.contracts = API + '/api/contracts';
     endpoint.enableContract = API + '/api/contracts';
     endpoint.registerServiceProvider = API + '/api/services';
+    endpoint.getAllServices = API + '/api/services/all';
 
     self.listServices = listServices;
     self.registerServiceProvider = registerServiceProvider;
@@ -20,14 +21,23 @@
     self.userContract = userContract;
     self.enableContract = enableContract;
     self.createContract = createContract;
+    self.getAllServices = getAllServices;
 
-    function registerServiceProvider(idService, idProvider) {
-        console.log(idService, idProvider);
+    function getAllServices() {
       var defer = $q.defer();
-      $http.post(endpoint.registerServiceProvider, {
-          idService: idService,
-          idProvider: idProvider
+      $http.get(endpoint.getAllServices)
+        .success(function(data) {
+          defer.resolve(data);
         })
+        .error(function(err) {
+          defer.reject(err);
+        });
+      return defer.promise;
+    }
+
+    function registerServiceProvider(obj) {
+      var defer = $q.defer();
+      $http.post(endpoint.registerServiceProvider, obj)
         .success(function(data) {
           defer.resolve(data);
         })

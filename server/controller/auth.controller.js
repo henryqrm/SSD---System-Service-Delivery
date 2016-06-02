@@ -4,6 +4,12 @@
 const db = require('../model/model.person.js');
 
 exports.login = function(email, password, callback) {
+    if (email === undefined || password === undefined) {
+        callback({
+            error: 'no_user'
+        });
+        return;
+    }
     db.Person.findOne({
             'email': email
         },

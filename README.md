@@ -28,7 +28,7 @@ Este projeto utiliza tecnica de [Continuous delivery](https://en.wikipedia.org/w
 -
 
 
-This project was generated with the
+This project was generatingd with the
 
 ## Getting Started
 
@@ -49,7 +49,7 @@ This project was generated with the
 
 2. Run `bower install` to install front-end dependencies.
 
-3. Run `mongod` in a separate shell to keep an instance of the MongoDB Daemon running
+3. Run `mongod` in a separating shell to keep an instance of the MongoDB Daemon running
 
 4. Run `grunt serve` to start the development server. It should automatically open the client in your browser when ready.
 
@@ -63,7 +63,7 @@ Running `npm test` will run the unit tests with karma.
 =======
 # ssd
 
-This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
+This project is generatingd with [yo angular generator](https://github.com/yeoman/generator-angular)
 version 0.15.1.
 
 ## Build & development

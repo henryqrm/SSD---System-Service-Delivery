@@ -112,4 +112,58 @@ exports.init = function() {
             }
         }
     });
+
+    db.Person.findOne({
+        'email': 'Erica@Erica.com.br'
+    }, function(err, person) {
+        if (!err) {
+            if (!person) {
+                new db.Person({
+                    name: {
+                        first: 'Erica',
+                        last: ''
+                    },
+                    email: 'Erica@Erica.com.br',
+                    password: '123456',
+                    enable: false, // Allow user
+                    role: 'provider',
+                    create_at: Date()
+                }).save(function(error, person) {
+                    if (error) {
+                        console.log("Não foi possivel salvar o usuario");
+                    } else {
+                        console.log(person);
+                        console.log("user create");
+                    }
+                });
+            }
+        }
+    });
+
+    db.Person.findOne({
+        'email': 'Victor@Victor.com.br'
+    }, function(err, person) {
+        if (!err) {
+            if (!person) {
+                new db.Person({
+                    name: {
+                        first: 'Victor',
+                        last: ''
+                    },
+                    email: 'Victor@Victor.com.br',
+                    password: '123456',
+                    enable: false, // Allow user
+                    role: 'user',
+                    create_at: Date()
+                }).save(function(error, person) {
+                    if (error) {
+                        console.log("Não foi possivel salvar o usuario");
+                    } else {
+                        console.log(person);
+                        console.log("user create");
+                    }
+                });
+            }
+        }
+    });
 };

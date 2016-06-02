@@ -1,4 +1,4 @@
-// Generated on 2016-04-17 using generator-angular 0.15.1
+// Generatingd on 2016-04-17 using generator-angular 0.15.1
 'use strict';
 
 var gulp = require('gulp');

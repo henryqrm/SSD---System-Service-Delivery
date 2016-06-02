@@ -119,26 +119,30 @@
     function authenticate(credentials) {
       var defer = $q.defer();
       $http.post(AuthEndpoints.auth(), credentials).success(function(data) {
-        saveToken({
-          id: data._id,
-          expires: 86400
-        });
-        executeAuthFunctions({
-          id: data._id,
-          expires: 86400
-        });
-        user = data;
-        if (data.role === "admin") {
-          _isAdmin = true;
-          _isLogged = true;
-        } else if (data.role === "provider") {
-          _isProvider = true;
-          _isLogged = true;
-        } else if (data.role === "user") {
-          _isUser = true;
-          _isLogged = true;
+        if (data.enable === false) {
+          defer.resolve("disable");
+        } else {
+          saveToken({
+            id: data._id,
+            expires: 86400
+          });
+          executeAuthFunctions({
+            id: data._id,
+            expires: 86400
+          });
+          user = data;
+          if (data.role === "admin") {
+            _isAdmin = true;
+            _isLogged = true;
+          } else if (data.role === "provider") {
+            _isProvider = true;
+            _isLogged = true;
+          } else if (data.role === "user") {
+            _isUser = true;
+            _isLogged = true;
+          }
+          defer.resolve(data);
         }
-        defer.resolve(data);
       }).error(function(err) {
         defer.reject(err);
       });

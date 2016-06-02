@@ -3,19 +3,23 @@
 const db = require('../config/db.config.js');
 const mongoose = require('mongoose');
 let contractSchema = mongoose.Schema({
+    service: String,
     id_provider: String,
     id_client: String,
+    name_provider: String,
+    name_client: String,
     create_at: Date,
     done_at: Date,
     enable: Boolean,
-    rate: [{
+    done: Boolean,
+    rating: [{
         id_person: String,
         value: Number
     }],
     cost: {
         point: Number,
         money: Number,
-        type: Number
+        tipo: String
     }
 });
 

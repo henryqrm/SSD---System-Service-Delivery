@@ -15,6 +15,7 @@
       'google.places',
       'ngMessages',
       'nvd3',
+      'angular-input-stars',
 
 
 

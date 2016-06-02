@@ -7,5 +7,17 @@
       </md-option>
     </md-select>
   </md-input-container>
+  <md-input-container flex>
+    <label>Tipo</label>
+    <md-select ng-model="registerServices.aux.type">
+      <md-option ng-repeat="item in ['Voluntário', 'Pago']" value="{{item}}">
+        {{item}}
+      </md-option>
+    </md-select>
+  </md-input-container>
+  <md-input-container>
+        <label>Valor/Pontos</label>
+        <input ng-model="registerServices.aux.point_money">
+      </md-input-container>
   <md-button flex ng-click="registerServices.register($event)">Cadastrar</md-button>
 </md-content>
